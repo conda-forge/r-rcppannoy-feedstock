@@ -14,14 +14,16 @@ Summary: 'Annoy' is a small C++ library for Approximate Nearest Neighbors  writt
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/r-rcppannoy-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/r-rcppannoy-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/r-rcppannoy-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/r-rcppannoy-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/r-rcppannoy-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/r-rcppannoy-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-rcppannoy-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-rcppannoy-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/r-rcppannoy-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-rcppannoy-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-rcppannoy-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-rcppannoy-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-rcppannoy/badges/version.svg)](https://anaconda.org/conda-forge/r-rcppannoy)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-rcppannoy/badges/downloads.svg)](https://anaconda.org/conda-forge/r-rcppannoy)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-r--rcppannoy-green.svg)](https://anaconda.org/conda-forge/r-rcppannoy) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/r-rcppannoy.svg)](https://anaconda.org/conda-forge/r-rcppannoy) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/r-rcppannoy.svg)](https://anaconda.org/conda-forge/r-rcppannoy) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/r-rcppannoy.svg)](https://anaconda.org/conda-forge/r-rcppannoy) |
 
 Installing r-rcppannoy
 ======================
