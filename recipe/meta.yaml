@@ -10,35 +10,41 @@ package:
 source:
   fn: RcppAnnoy_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/RcppAnnoy_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/RcppAnnoy/RcppAnnoy_{{ version }}.tar.gz
-
+    - {{ cran_mirror }}/src/contrib/RcppAnnoy_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/RcppAnnoy/RcppAnnoy_{{ version }}.tar.gz
   sha256: caca129aaed93670601a05152966386c2a1a2618d450e33357cb7f23a6324823
 
 build:
+  merge_build_host: True  # [win]
   number: 1
-  skip: true  # [win32]
-
   rpaths:
     - lib/R/lib/
     - lib/
 
+# Suggests: RUnit
 requirements:
   build:
+    - {{ compiler('c') }}        # [not win]
+    - {{ compiler('cxx') }}      # [not win]
+    - {{native}}toolchain        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}make
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
+    - {{posix}}zip               # [win]
+
+  host:
     - r-base
-    - r-rcpp
-    - posix                # [win]
-    - {{native}}toolchain  # [win]
-    - gcc                  # [not win]
+    - r-rcpp >=0.11.3
 
   run:
     - r-base
-    - r-rcpp
-    - libgcc  # [not win]
+    - {{native}}gcc-libs         # [win]
+    - r-rcpp >=0.11.3
 
 test:
   commands:
-    - $R -e "library('RcppAnnoy')"  # [not win]
+    - $R -e "library('RcppAnnoy')"           # [not win]
     - "\"%R%\" -e \"library('RcppAnnoy')\""  # [win]
 
 about:
@@ -47,11 +53,13 @@ about:
   summary: '''Annoy'' is a small C++ library for Approximate Nearest Neighbors  written for efficient
     memory usage as well an ability to load from / save to disk. This package provides
     an R interface by relying on the ''Rcpp'' package, exposing the same interface as
-    the original Python wrapper to ''Annoy''. See <https'
+    the original Python wrapper to ''Annoy''. See <https://github.com/spotify/annoy>
+    for more on ''Annoy''. ''Annoy'' is released under Version 2.0 of the Apache License.
+    Also included is a small Windows port of ''mmap'' which is released under the MIT
+    license.'
 
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}\/lib\/R\/share\/licenses\/GPL-3'  # [unix]
-  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
+
 extra:
    recipe-maintainers:
     - dpryan79
