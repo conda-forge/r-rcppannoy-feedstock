@@ -7,7 +7,7 @@ Package license: GPL (>= 2)
 
 Feedstock license: BSD 3-Clause
 
-Summary: 'Annoy' is a small C++ library for Approximate Nearest Neighbors  written for efficient memory usage as well an ability to load from / save to disk. This package provides an R interface by relying on the 'Rcpp' package, exposing the same interface as the original Python wrapper to 'Annoy'. See <https
+Summary: 'Annoy' is a small C++ library for Approximate Nearest Neighbors  written for efficient memory usage as well an ability to load from / save to disk. This package provides an R interface by relying on the 'Rcpp' package, exposing the same interface as the original Python wrapper to 'Annoy'. See <https://github.com/spotify/annoy> for more on 'Annoy'. 'Annoy' is released under Version 2.0 of the Apache License. Also included is a small Windows port of 'mmap' which is released under the MIT license.
 
 
 
