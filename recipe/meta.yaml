@@ -1,4 +1,4 @@
-{% set version = "0.0.11" %}
+{% set version = "0.0.12" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,7 +12,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/RcppAnnoy_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/RcppAnnoy/RcppAnnoy_{{ version }}.tar.gz
-  sha256: a149cf6681bbb6d80825189cf6563605388aa6e4584b6207809b3dc7ac0265c6
+  sha256: 8f736cbbb4a32c80cb08ba4e81df633846d725f27867e983af2012966eac0eac
 
 build:
   merge_build_host: True  # [win]
