@@ -1,4 +1,4 @@
-{% set version = "0.0.14" %}
+{% set version = "0.0.15" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,10 +12,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/RcppAnnoy_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/RcppAnnoy/RcppAnnoy_{{ version }}.tar.gz
-  sha256: c4c2da6d8c2fd00ecb78a280c13c55846d9d835ec60de6a991089df24a7f31f2
+  sha256: 74bba1355656e820870ca838e3da9caed60edcb770ee16ab31e032ceaf359ce6
 
 build:
-  merge_build_host: True  # [win]
+  merge_build_host: true  # [win]
   number: 0
   rpaths:
     - lib/R/lib/
@@ -51,18 +51,15 @@ test:
 about:
   home: https://CRAN.R-project.org/package=RcppAnnoy
   license: GPL (>= 2)
-  summary: '''Annoy'' is a small C++ library for Approximate Nearest Neighbors  written for efficient
-    memory usage as well an ability to load from / save to disk. This package provides
-    an R interface by relying on the ''Rcpp'' package, exposing the same interface as
-    the original Python wrapper to ''Annoy''. See <https://github.com/spotify/annoy>
-    for more on ''Annoy''. ''Annoy'' is released under Version 2.0 of the Apache License.
-    Also included is a small Windows port of ''mmap'' which is released under the MIT
-    license.'
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  summary: "'Annoy' is a small C++ library for Approximate Nearest Neighbors  written for efficient memory usage as well an ability to load from / save to disk. This\
+    \ package provides an R interface by relying on the 'Rcpp' package, exposing the same interface as the original Python wrapper to 'Annoy'. See <https://github.com/spotify/annoy>\
+    \ for more on 'Annoy'. 'Annoy' is released under Version 2.0 of the Apache License. Also included is a small Windows port of 'mmap' which is released under the\
+    \ MIT license."
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
   license_family: GPL3
 
 extra:
-   recipe-maintainers:
+  recipe-maintainers:
     - conda-forge/r
     - MathiasHaudgaard
     - FrodePedersen
