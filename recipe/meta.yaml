@@ -1,5 +1,4 @@
-{% set version = "0.0.16" %}
-
+{% set version = "0.0.17" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,40 +7,36 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: RcppAnnoy_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/RcppAnnoy_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/RcppAnnoy/RcppAnnoy_{{ version }}.tar.gz
-  sha256: d98d5f239039a0f82c19b44abf37c26388bc40e96d573f2058846d736919ca2d
+  sha256: 4c91c093d544a82f512d99f2b436b0dfee1d6893e0d004ce09085628e6be8d7c
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
 
-# Suggests: RUnit
 requirements:
   build:
-    - {{ compiler('c') }}        # [not win]
-    - {{ compiler('cxx') }}      # [not win]
+    - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
-    - {{ compiler('m2w64_cxx') }}        # [win]
+    - {{ compiler('cxx') }}            # [not win]
+    - {{ compiler('m2w64_cxx') }}      # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}make
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
-
   host:
     - r-base
-    - r-rcpp >=0.11.3
-
+    - r-rcpp
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
-    - r-rcpp >=0.11.3
+    - r-rcpp
 
 test:
   commands:
@@ -50,13 +45,12 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=RcppAnnoy
-  license: GPL (>= 2)
-  summary: "'Annoy' is a small C++ library for Approximate Nearest Neighbors  written for efficient memory usage as well an ability to load from / save to disk. This\
-    \ package provides an R interface by relying on the 'Rcpp' package, exposing the same interface as the original Python wrapper to 'Annoy'. See <https://github.com/spotify/annoy>\
-    \ for more on 'Annoy'. 'Annoy' is released under Version 2.0 of the Apache License. Also included is a small Windows port of 'mmap' which is released under the\
-    \ MIT license."
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
+  license: GPL-2.0-or-later
+  summary: "'Annoy' is a small C++ library for Approximate Nearest Neighbors  written for efficient memory usage as well an ability to load from / save to disk. This package provides an R interface by relying on the 'Rcpp' package, exposing the same interface as the original Python wrapper to 'Annoy'. See <https://github.com/spotify/annoy>\
+    \ for more on 'Annoy'. 'Annoy' is released under Version 2.0 of the Apache License. Also included is a small Windows port of 'mmap' which is released under the MIT license."
   license_family: GPL3
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
