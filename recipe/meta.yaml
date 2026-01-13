@@ -1,4 +1,4 @@
-{% set version = "0.0.22" %}
+{% set version = "0.0.23" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/RcppAnnoy_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/RcppAnnoy/RcppAnnoy_{{ version }}.tar.gz
-  sha256: 9f2121d787c4d3e7beccdd65f5d1de81f31c99d57d5d61ca3cc5af7169dd8f65
+  sha256: e502e8d98590a3b9dc7ec82ec7242ab737a653603ecb0fc7145798f3e7e2d1dc
 
 build:
-  number: 2
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
